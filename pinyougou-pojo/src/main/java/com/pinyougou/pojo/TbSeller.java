@@ -52,6 +52,8 @@ public class TbSeller implements Serializable {
 
     private String bankName;
 
+    private String  bankBranch;
+
     public String getSellerId() {
         return sellerId;
     }
@@ -242,5 +244,13 @@ public class TbSeller implements Serializable {
 
     public void setBankName(String bankName) {
         this.bankName = bankName == null ? null : bankName.trim();
+    }
+
+    public String getBankBranch() {
+        return bankBranch;
+    }
+
+    public void setBankBranch(String bankBranch) {
+        this.bankBranch = bankBranch;
     }
 }

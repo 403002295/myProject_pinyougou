@@ -23,8 +23,13 @@
 
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <!--设定文件上传的最大值 5MB -->
+        <property name="maxUploadSize" value="5242880"></property>
+    </bean>
     <!--dubbo 相关-->
     <dubbo:application name="pinyougou-shop-web" />
-    <dubbo:registry address="zookeeper://172.18.54.8/2181"/>
+    <dubbo:registry address="zookeeper://172.18.54.8:2181"/>
     <dubbo:annotation package="com.pinyougou.shop.controller"/>
 </beans>

@@ -1764,6 +1764,76 @@ public class TbSellerExample {
             addCriterion("bank_name not between", value1, value2, "bankName");
             return (Criteria) this;
         }
+
+        public Criteria andBankBranchIsNull() {
+            addCriterion("bank_branch is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchIsNotNull() {
+            addCriterion("bank_branch is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchEqualTo(String value) {
+            addCriterion("bank_branch =", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchNotEqualTo(String value) {
+            addCriterion("bank_branch <>", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchGreaterThan(String value) {
+            addCriterion("bank_branch >", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchGreaterThanOrEqualTo(String value) {
+            addCriterion("bank_branch >=", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchLessThan(String value) {
+            addCriterion("bank_branch <", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchLessThanOrEqualTo(String value) {
+            addCriterion("bank_branch <=", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchLike(String value) {
+            addCriterion("bank_branch like", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchNotLike(String value) {
+            addCriterion("bank_branch not like", value, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchIn(List<String> values) {
+            addCriterion("bank_branch in", values, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchNotIn(List<String> values) {
+            addCriterion("bank_branch not in", values, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchBetween(String value1, String value2) {
+            addCriterion("bank_branch between", value1, value2, "bankBranch");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankBranchNotBetween(String value1, String value2) {
+            addCriterion("bank_branch not between", value1, value2, "bankBranch");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
