@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../javaTest/springSecurity" />
     <file type="web" url="file://$PROJECT_DIR$/pinyougou-sellergoods-service" />
     <file type="web" url="file://$PROJECT_DIR$/pinyougou-shop-web" />
   </component>
@@ -10,6 +11,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/pinyougou-sellergoods-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/../javaTest/springSecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/../javaTest/pom.xml" />
       </list>
     </option>
   </component>
