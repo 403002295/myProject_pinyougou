@@ -16,6 +16,7 @@ import com.pinyougou.pojo.TbGoodsExample.Criteria;
 import com.pinyougou.sellergoods.service.GoodsService;
 
 import entity.PageResult;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.print.DocFlavor;
 
@@ -25,6 +26,7 @@ import javax.print.DocFlavor;
  *
  */
 @Service
+@Transactional
 public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
@@ -179,9 +181,13 @@ public class GoodsServiceImpl implements GoodsService {
 	 */
 	@Override
 	public void delete(Long[] ids) {
+		//因为不是物理删除 所以只是变更一个状态 表示删除就行
 		for(Long id:ids){
-			goodsMapper.deleteByPrimaryKey(id);
-		}		
+			TbGoods goods = goodsMapper.selectByPrimaryKey(id);
+			goods.setIsDelete("1");
+			goodsMapper.updateByPrimaryKey(goods);
+//			goodsMapper.deleteByPrimaryKey(id);
+		}
 	}
 	
 	
@@ -191,6 +197,7 @@ public class GoodsServiceImpl implements GoodsService {
 		
 		TbGoodsExample example=new TbGoodsExample();
 		Criteria criteria = example.createCriteria();
+		criteria.andIsDeleteIsNull();//非删除状态
 		
 		if(goods!=null){			
 		    if(goods.getSellerId()!=null && goods.getSellerId().length()>0){
@@ -226,4 +233,17 @@ public class GoodsServiceImpl implements GoodsService {
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 
+	/**
+	 * 更改商品的审核状态
+	 * @param ids
+	 * @param status
+	 */
+	@Override
+	public void updateStatus(Long[] ids, String status) {
+		for (Long id : ids) {
+			TbGoods tbGoods = goodsMapper.selectByPrimaryKey(id);
+			tbGoods.setAuditStatus(status);
+			goodsMapper.updateByPrimaryKey(tbGoods);
+		}
+	}
 }
